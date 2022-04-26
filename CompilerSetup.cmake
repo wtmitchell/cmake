@@ -55,7 +55,7 @@ function(enable_c_warnings_for target)
     _add_c_flag(${target} -Wno-poison-system-directories)
   elseif("${CMAKE_C_COMPILER_ID}" STREQUAL "GNU")
     # Large warning groups
-    _add_c_flag("-Wall")
+    _add_c_flag(${target} -Wall)
     _add_c_flag(${target} -Wextra)
     _add_c_flag(${target} -Wpedantic)
     # Individual warnings
