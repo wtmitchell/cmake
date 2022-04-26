@@ -17,10 +17,14 @@ This module provides the following functions:
   Turns on color diagnostics, sometimes needed
 
 ``link_math_library(<target>)``
-  Checks whether libm needs to be specifically linked for target
+  Checks whether libm needs to be specifically linked for target and
+  links it if needed
 
 #]=======================================================================]
 
+# Should probably be replaced with CheckCompilerFlag which in turns defines
+# check_compiler_flag(lang flag var) instead of the language
+# specific ones, except the non-language specific one requires CMake 3.19+
 include(CheckCCompilerFlag)
 include(CheckCXXCompilerFlag)
 
