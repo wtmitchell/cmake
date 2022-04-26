@@ -16,6 +16,9 @@ This module provides the following functions:
 ``colorize_output()``
   Turns on color diagnostics, sometimes needed
 
+``link_math_library(<target>)``
+  Checks whether libm needs to be specifically linked for target
+
 #]=======================================================================]
 
 include(CheckCCompilerFlag)
@@ -152,3 +155,12 @@ function(colorize_output)
     endif()
   endif()
 endfunction()
+
+function(link_math_library target)
+  include(CheckLibraryExists)
+  check_library_exists(m pow "" LIBM)
+  if(LIBM)
+    target_link_libraries(${target} PUBLIC m)
+  endif()
+endfunction()
+

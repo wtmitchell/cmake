@@ -14,3 +14,4 @@ add_executable(test_bin
   )
 
 enable_c_warnings_for(test_bin)
+link_math_library(test_bin)
