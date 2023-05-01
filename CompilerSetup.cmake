@@ -53,6 +53,7 @@ function(enable_c_warnings_for target)
     # Use theory of turn on all warnings, but disable ones that we don't care about
     _add_c_flag(${target} -Weverything)
     _add_c_flag(${target} -Wno-poison-system-directories)
+    _add_c_flag(${target} -Wno-declaration-after-statement)
   elseif("${CMAKE_C_COMPILER_ID}" STREQUAL "GNU")
     # Large warning groups
     _add_c_flag(${target} -Wall)
